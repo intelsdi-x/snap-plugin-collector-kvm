@@ -42,7 +42,11 @@
         /intel/kvm/halt_wakeup: {}
         /intel/kvm/host_state_reload: {}
         /intel/kvm/hypercalls: {}
-   
+
+      config: 
+        /intel/kvm: 
+          sys_path: "/sys"
+
       publish:
         - plugin_name: "file"
           config:

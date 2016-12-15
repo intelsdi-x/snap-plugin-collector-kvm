@@ -1,5 +1,5 @@
-[![Build Status](https://api.travis-ci.org/intelsdi-x/snap-plugin-collector-yarn.svg)](https://travis-ci.org/intelsdi-x/snap-plugin-collector-yarn )
-[![Go Report Card](http://goreportcard.com/badge/intelsdi-x/snap-plugin-collector-yarn)](http://goreportcard.com/report/intelsdi-x/snap-plugin-collector-yarn)
+[![Build Status](https://api.travis-ci.org/intelsdi-x/snap-plugin-collector-kvm.svg)](https://travis-ci.org/intelsdi-x/snap-plugin-collector-kvm )
+[![Go Report Card](http://goreportcard.com/badge/intelsdi-x/snap-plugin-collector-kvm)](http://goreportcard.com/report/intelsdi-x/snap-plugin-collector-kvm)
 
 This plugin collects metrics from Linux KVM debug statistics.  
 
@@ -21,16 +21,17 @@ It's used in the [Snap framework](http://github.com:intelsdi-x/snap).
 6. [Acknowledgements](#acknowledgements)
 
 ## Getting Started
+  Plugin collects specified metrics from linux kvm
 ### System Requirements
 * [golang 1.7+](https://golang.org/dl/)  - needed only for building
-*
+* This Plugin compatible with kernel > 2.6
+* Linux/x86_64
 ### Operating systems
 All OSs currently supported by snap:
 * Linux/amd64
-* Darwin/amd64
+
 
 ### Installation
-
 
 #### Download the plugin binary:
 
@@ -62,13 +63,6 @@ This builds the plugin in `./build/`
 
 This collector gathers metrics from kvm.
 
-### Global config
-Global configuration files are described in [snap's documentation](https://github.com/intelsdi-x/snap/blob/master/docs/snapteld_CONFIGURATION.md). You have to add `"kvm"` section with following entries:
-
- - `"sudo su"` - root access
-
-
-See exemplary Global configuration files in [examplary config files] (examples/configs/).
 
 ### Collected Metrics
 
@@ -102,38 +96,41 @@ Create a task manifest file  (exemplary files in [examples/tasks/] (examples/tas
   workflow:
     collect:
       metrics:
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
-        /intel/kvm/debug/*/: {}
+        /intel/kvm/insn_emulation/: {}
+        /intel/kvm/insn_emulation_fail/: {}
+        /intel/kvm/invlpq/: {}
+        /intel/kvm/io_exits/: {}
+        /intel/kvm/irq_exits/: {}
+        /intel/kvm/irq_injections/: {}
+        /intel/kvm/irq_window/: {} 
+        /intel/kvm/largepages/: {}
+        /intel/kvm/mmio_exits/: {}
+        /intel/kvm/mmu_cache_miss/: {} 
+        /intel/kvm/mmu_flooded/: {}
+        /intel/kvm/mmu_pde_zapped/: {}
+        /intel/kvm/mmu_pte_updated/: {}
+        /intel/kvm/mmu_pte_write/: {}
+        /intel/kvm/mmu_recycled/: {}
+        /intel/kvm/mmu_shadow_zapped/: {}
+        /intel/kvm/mmu_unsync/: {}
+        /intel/kvm/nmi_injections/: {}
+        /intel/kvm/nmi_window/: {}
+        /intel/kvm/pf_fixed/: {}
+        /intel/kvm/pf_quest/: {}
+        /intel/kvm/remote_tlb_flush/: {}
+        /intel/kvm/request_irq/: {}
+        /intel/kvm/signal_exits/: {}
+        /intel/kvm/tlb_flush/: {}
+        /intel/kvm/efer_reload/: {}
+        /intel/kvm/exits/: {}
+        /intel/kvm/fpu_reload/: {}
+        /intel/kvm/halt_attempted_poll/: {}
+        /intel/kvm/halt_exits/ : {}
+        /intel/kvm/halt_successful_poll/: {}
+        /intel/kvm/halt_wakeup/: {}
+        /intel/kvm/host_state_reload/: {}
+        /intel/kvm/hypercalls/: {}
+
       publish:
         - plugin_name: "file"
           config:

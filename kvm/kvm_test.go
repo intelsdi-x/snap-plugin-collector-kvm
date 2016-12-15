@@ -31,7 +31,7 @@ func TestKvmPlugin(t *testing.T) {
 	}
 	sysFs = filepath.Join(sysFs, "sys")
 	config := plugin.Config{
-		"sysPath": "sys",
+		"sys_path": "/sys",
 	}
 	Convey("Create Kvm Collector", t, func() {
 		kvmCol := KvmCollector{}
@@ -68,6 +68,8 @@ func TestKvmPlugin(t *testing.T) {
 		}
 		metrics, err := kvmCol.CollectMetrics(mts)
 		So(err, ShouldBeNil)
+		// this test should use mocked sys_path, because current the result depends on system where these tests are running
+		// what is more, it will fail on Travis CLI
 		So(len(metrics), ShouldResemble, 29)
 		So(metrics[0].Data, ShouldNotBeNil)
 	})

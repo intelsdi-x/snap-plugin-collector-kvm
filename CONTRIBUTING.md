@@ -55,4 +55,3 @@ deepest gratitude for your assistance in making Snap a more secure product.
 
 ## Thank You
 And **thank you!** Your contribution, through code and participation, is incredibly important to us.
-

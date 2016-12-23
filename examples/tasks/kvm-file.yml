@@ -1,0 +1,53 @@
+---
+  version: 1
+  schedule:
+    type: "simple"
+    interval: "1s"
+  max-failures: 10
+  workflow:
+    collect:
+      metrics:
+ 
+        /intel/kvm/insn_emulation: {}
+        /intel/kvm/insn_emulation_fail: {}
+        /intel/kvm/invlpq: {}
+        /intel/kvm/io_exits: {}
+        /intel/kvm/irq_exits: {}
+        /intel/kvm/irq_injections: {}
+        /intel/kvm/irq_window: {}
+        /intel/kvm/largepages: {}
+        /intel/kvm/mmio_exits: {}
+        /intel/kvm/mmu_cache_miss: {}
+        /intel/kvm/mmu_flooded: {}
+        /intel/kvm/mmu_pde_zapped: {}
+        /intel/kvm/mmu_pte_updated: {}
+        /intel/kvm/mmu_pte_write: {}
+        /intel/kvm/mmu_recycled: {}
+        /intel/kvm/mmu_shadow_zapped: {}
+        /intel/kvm/mmu_unsync: {}
+        /intel/kvm/nmi_injections: {}
+        /intel/kvm/nmi_window: {}
+        /intel/kvm/pf_fixed: {}
+        /intel/kvm/pf_quest: {}
+        /intel/kvm/remote_tlb_flush: {}
+        /intel/kvm/request_irq: {}
+        /intel/kvm/signal_exits: {}
+        /intel/kvm/tlb_flush: {}
+        /intel/kvm/efer_reload: {}
+        /intel/kvm/exits: {}
+        /intel/kvm/fpu_reload: {}
+        /intel/kvm/halt_attempted_poll: {}
+        /intel/kvm/halt_exits: {}
+        /intel/kvm/halt_successful_poll: {}
+        /intel/kvm/halt_wakeup: {}
+        /intel/kvm/host_state_reload: {}
+        /intel/kvm/hypercalls: {}
+
+      config: 
+        /intel/kvm: 
+          sys_path: "/sys"
+
+      publish:
+        - plugin_name: "file"
+          config:
+            file: "/tmp/kvm_metrics"

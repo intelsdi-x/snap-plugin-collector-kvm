@@ -7,7 +7,7 @@
   "workflow": {
     "collect": {
       "metrics": {
-        "/intel/*": {}
+        "/intel/kvm/*": {}
       },
       "config": {
         "/intel/kvm": {

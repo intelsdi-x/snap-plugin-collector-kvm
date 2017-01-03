@@ -1,6 +1,9 @@
+//
+// +build small
+
 /*
 http://www.apache.org/licenses/LICENSE-2.0.txt
-Copyright 2016 Intel Corporation
+Copyright 2017 Intel Corporation
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -31,7 +34,7 @@ func TestKvmPlugin(t *testing.T) {
 	}
 	sysFs = filepath.Join(sysFs, "sys")
 	config := plugin.Config{
-		"sys_path": "/sys",
+		"sys_path": "sys",
 	}
 	Convey("Create Kvm Collector", t, func() {
 		kvmCol := KvmCollector{}

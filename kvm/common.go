@@ -1,6 +1,6 @@
 /*
 http://www.apache.org/licenses/LICENSE-2.0.txt
-Copyright 2016 Intel Corporation
+Copyright 2017 Intel Corporation
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -58,8 +58,8 @@ func getValue(filename string) (int64, error) {
 	// trim white spaces
 	line = strings.TrimSpace(line)
 
+	// check if value is a hex value and do appropriate parsing
 	if strings.HasPrefix(line, hexPrefix) {
-		// check if value is a hex value and do appropriate parsing
 		line = strings.TrimPrefix(line, hexPrefix)
 		return strconv.ParseInt(line, 16, 0)
 	}

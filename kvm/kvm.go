@@ -1,6 +1,6 @@
 /*
 http://www.apache.org/licenses/LICENSE-2.0.txt
-Copyright 2016 Intel Corporation
+Copyright 2017 Intel Corporation
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,11 +50,11 @@ var nsTypes = struct {
 		"nmi_injections", "nmi_window", "pf_fixed", "pf_quest", "remote_tlb_flush", "request_irq", "signal_exits", "tlb_flush", "efer_reload", "exits", "fpu_reload", "halt_attempted_poll", "halt_exits", "halt_successful_poll", "halt_wakeup", "host_state_reload", "hypercalls"},
 }
 
-// KvmCollector type
+//KvmCollector type
 type KvmCollector struct {
 }
 
-// GetConfigPolicy returns a config policy
+//GetConfigPolicy returns a config policy
 func (KvmCollector) GetConfigPolicy() (plugin.ConfigPolicy, error) {
 	policy := plugin.NewConfigPolicy()
 	policy.AddNewStringRule([]string{""}, "sys_path", false, plugin.SetDefaultString("/sys"))
@@ -62,7 +62,7 @@ func (KvmCollector) GetConfigPolicy() (plugin.ConfigPolicy, error) {
 	return *policy, nil
 }
 
-// CollectMetrics returns collected metrics
+//CollectMetrics returns collected metrics
 func (KvmCollector) CollectMetrics(mts []plugin.Metric) ([]plugin.Metric, error) {
 	metrics := []plugin.Metric{}
 	sysPathConf, err := mts[0].Config.GetString("sys_path")

@@ -1,6 +1,8 @@
 [![Build Status](https://api.travis-ci.org/intelsdi-x/snap-plugin-collector-kvm.svg)](https://travis-ci.org/intelsdi-x/snap-plugin-collector-kvm )
 [![Go Report Card](http://goreportcard.com/badge/intelsdi-x/snap-plugin-collector-kvm)](http://goreportcard.com/report/intelsdi-x/snap-plugin-collector-kvm)
-snap-plugin-collector-kvm
+
+# Snap collector plugin - kvm
+
 This plugin collects metrics from Linux KVM debug statistics.  
 
 It's used in the [Snap framework](http://github.com/intelsdi-x/snap).
@@ -21,12 +23,13 @@ It's used in the [Snap framework](http://github.com/intelsdi-x/snap).
 
 ## Getting Started
   Plugin collects specified metrics from linux kvm
+
 ### System Requirements
 * [golang 1.7+](https://golang.org/dl/)  - needed only for building
 * This Plugin compatible with kernel > 2.6
 * Linux/x86_64
+
 ### Operating systems
-  All OSs currently supported by snap:
 * Linux/amd64
 
 
@@ -34,8 +37,7 @@ It's used in the [Snap framework](http://github.com/intelsdi-x/snap).
 
 #### Download the plugin binary:
 
-You can get the pre-built binaries for your OS and architecture from the plugin's [GitHub Releases](https://github.com/intelsdi-x/snap-plugin-collector-kvm/releases) page. Download the plugins package from the latest release and store in a path you want  `snapteld` to access (`/opt/snap/plugins` is the default location for snap packages).
-
+You can get the pre-built binaries for your OS and architecture under the plugin's [release](https://github.com/intelsdi-x/snap-plugin-collector-kvm/releases) page. For Snap, check [here](https://github.com/intelsdi-x/snap/releases).
 
 #### To build the plugin binary:
 
@@ -53,9 +55,10 @@ $ make
 This builds the plugin in `./build/`
 
 ### Configuration and Usage
-* Set up the [snap framework](https://github.com/intelsdi-x/snap/blob/master/README.md#getting-started).
 
-* Load the plugin and create a task, see example in [Examples](#examples).
+Set up the [snap framework](https://github.com/intelsdi-x/snap/blob/master/README.md#getting-started).
+
+Load the plugin and create a task, see example in [Examples](#examples).
 
 ## Documentation
 
@@ -66,7 +69,7 @@ This collector gathers metrics from kvm.
 
 List of collected metrics is described in [METRICS.md](METRICS.md).
 
-### Examples
+### Examples 
 
 Example of running snap kvm collector and writing data to file.
 
@@ -76,12 +79,14 @@ Ensure [snap daemon is running](https://github.com/intelsdi-x/snap#running-snap)
 * command line: `snapteld -l 1 -t 0 &`
 
 Download and load snap plugins:
+
 ```
 $ wget http://snap.ci.snap-telemetry.io/plugins/snap-plugin-collector-kvm/latest/linux/x86_64/snap-plugin-collector-kvm
 $ wget http://snap.ci.snap-telemetry.io/plugins/snap-plugin-publisher-file/latest/linux/x86_64/snap-plugin-publisher-file
 $ chmod 755 snap-plugin-*
 $ snaptel plugin load snap-plugin-collector-kvm
 $ snaptel plugin load snap-plugin-publisher-file
+```
 
 Create a task manifest file  (exemplary files in [examples/tasks/] (examples/tasks/)):
 ```yaml
@@ -94,40 +99,40 @@ Create a task manifest file  (exemplary files in [examples/tasks/] (examples/tas
   workflow:
     collect:
       metrics:
-        /intel/kvm/insn_emulation/: {}
-        /intel/kvm/insn_emulation_fail/: {}
-        /intel/kvm/invlpq/: {}
-        /intel/kvm/io_exits/: {}
-        /intel/kvm/irq_exits/: {}
-        /intel/kvm/irq_injections/: {}
-        /intel/kvm/irq_window/: {}
-        /intel/kvm/largepages/: {}
-        /intel/kvm/mmio_exits/: {}
-        /intel/kvm/mmu_cache_miss/: {}
-        /intel/kvm/mmu_flooded/: {}
-        /intel/kvm/mmu_pde_zapped/: {}
-        /intel/kvm/mmu_pte_updated/: {}
-        /intel/kvm/mmu_pte_write/: {}
-        /intel/kvm/mmu_recycled/: {}
-        /intel/kvm/mmu_shadow_zapped/: {}
-        /intel/kvm/mmu_unsync/: {}
-        /intel/kvm/nmi_injections/: {}
-        /intel/kvm/nmi_window/: {}
-        /intel/kvm/pf_fixed/: {}
-        /intel/kvm/pf_quest/: {}
-        /intel/kvm/remote_tlb_flush/: {}
-        /intel/kvm/request_irq/: {}
-        /intel/kvm/signal_exits/: {}
-        /intel/kvm/tlb_flush/: {}
-        /intel/kvm/efer_reload/: {}
-        /intel/kvm/exits/: {}
-        /intel/kvm/fpu_reload/: {}
-        /intel/kvm/halt_attempted_poll/: {}
-        /intel/kvm/halt_exits/ : {}
-        /intel/kvm/halt_successful_poll/: {}
-        /intel/kvm/halt_wakeup/: {}
-        /intel/kvm/host_state_reload/: {}
-        /intel/kvm/hypercalls/: {}
+        /intel/kvm/insn_emulation: {}
+        /intel/kvm/insn_emulation_fail: {}
+        /intel/kvm/invlpq: {}
+        /intel/kvm/io_exits: {}
+        /intel/kvm/irq_exits: {}
+        /intel/kvm/irq_injections: {}
+        /intel/kvm/irq_window: {}
+        /intel/kvm/largepages: {}
+        /intel/kvm/mmio_exits: {}
+        /intel/kvm/mmu_cache_miss: {}
+        /intel/kvm/mmu_flooded: {}
+        /intel/kvm/mmu_pde_zapped: {}
+        /intel/kvm/mmu_pte_updated: {}
+        /intel/kvm/mmu_pte_write: {}
+        /intel/kvm/mmu_recycled: {}
+        /intel/kvm/mmu_shadow_zapped: {}
+        /intel/kvm/mmu_unsync: {}
+        /intel/kvm/nmi_injections: {}
+        /intel/kvm/nmi_window: {}
+        /intel/kvm/pf_fixed: {}
+        /intel/kvm/pf_quest: {}
+        /intel/kvm/remote_tlb_flush: {}
+        /intel/kvm/request_irq: {}
+        /intel/kvm/signal_exits: {}
+        /intel/kvm/tlb_flush: {}
+        /intel/kvm/efer_reload: {}
+        /intel/kvm/exits: {}
+        /intel/kvm/fpu_reload: {}
+        /intel/kvm/halt_attempted_poll: {}
+        /intel/kvm/halt_exits: {}
+        /intel/kvm/halt_successful_poll: {}
+        /intel/kvm/halt_wakeup: {}
+        /intel/kvm/host_state_reload: {}
+        /intel/kvm/hypercalls: {}
 
       publish:
         - plugin_name: "file"
@@ -137,7 +142,7 @@ Create a task manifest file  (exemplary files in [examples/tasks/] (examples/tas
 Download an [example task file](https://github.com/intelsdi-x/snap-plugin-collector-kvm/blob/master/examples/tasks/) and load it:
 ```
 $ curl -sfLO https://raw.githubusercontent.com/intelsdi-x/snap-plugin-collector-kvm/master/examples/tasks/kvm-file.yml
-$ snaptel task create -t kvm-file.yaml
+$ snaptel task create -t kvm-file.yml
 Using task manifest to create task
 Task created
 ID: 480323af-15b0-4af8-a526-eb2ca6d8ae67

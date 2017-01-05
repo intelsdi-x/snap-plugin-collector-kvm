@@ -7,7 +7,6 @@
   workflow:
     collect:
       metrics:
- 
         /intel/kvm/insn_emulation: {}
         /intel/kvm/insn_emulation_fail: {}
         /intel/kvm/invlpq: {}

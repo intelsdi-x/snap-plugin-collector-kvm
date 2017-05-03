@@ -1,19 +1,19 @@
 hash: adc49e9453e2cadfe4fe4c01c82ccedee344ab5076e53478d910f1a91e7032c0
-updated: 2017-01-05T14:07:40.184550035Z
+updated: 2017-04-24T15:56:45.631677339+02:00
 imports:
 - name: github.com/golang/protobuf
   version: 888eb0692c857ec880338addf316bd662d5e630e
   subpackages:
   - proto
 - name: github.com/intelsdi-x/snap-plugin-lib-go
-  version: 66c6cb04aa95b63e6051d0a20280581e0f2309c7
+  version: 3527311f5c8e6fe9b55fc1f44e1b515a30845e18
   subpackages:
   - v1/plugin
   - v1/plugin/rpc
 - name: github.com/julienschmidt/httprouter
-  version: 4563b0ba73e4db6c6423b60a26f3cadd2e9a1ec9
+  version: 6f3f3919c8781ce5c0509c83fffc887a7830c938
 - name: github.com/Sirupsen/logrus
-  version: cd7d1bbe41066b6c1f19780f895901052150a575
+  version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
 - name: golang.org/x/net
   version: 154d9f9ea81208afed560f4cf27b4860c8ed1904
   subpackages:

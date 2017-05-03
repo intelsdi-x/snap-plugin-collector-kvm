@@ -30,7 +30,7 @@ const (
 	// Plugin plugin name
 	Plugin = "kvm"
 	// Version of plugin
-	Version = 1
+	Version = 2
 	// Class of the collector
 	Class = "sys"
 )
